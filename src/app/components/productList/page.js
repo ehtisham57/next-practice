@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Product from "./product"
 
 
 async function Products(){
@@ -10,7 +11,7 @@ let data =await fetch("https://dummyjson.com/products")
 
 const page = async () => {
     let products =await Products()
-    console.log(products)
+    // console.log(products)
   return (
     <div>
     <h1>Product List</h1>
@@ -22,6 +23,7 @@ const page = async () => {
             <h2>Name : {item.id}</h2>
             <p>{item.description}</p>
             <img src={item.thumbnail} alt="img" />
+            <Product price={item.price} description={item.description}/>
             </div>
         ))
     }
